@@ -1235,6 +1235,16 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
+coffee-loader@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/coffee-loader/-/coffee-loader-0.9.0.tgz#6deabd336062ddc6d773da4dfd16367fc7107bd6"
+  dependencies:
+    loader-utils "^1.0.2"
+
+coffeescript@2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.2.4.tgz#427c038e17a125e52a79fdb3106761753b8585d2"
+
 collection-visit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
@@ -5249,6 +5259,10 @@ sort-keys@^1.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
+sortablejs@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.7.0.tgz#80a2b2370abd568e1cec8c271131ef30a904fa28"
+
 source-list-map@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.0.tgz#aaa47403f7b245a92fbc97ea08f250d6087ed085"
@@ -5875,6 +5889,12 @@ vue-template-es2015-compiler@^1.6.0:
 vue@^2.5.16:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
+
+vuedraggable@^2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-2.16.0.tgz#52127081a2adb3de5fabd214d404ff3eee63575a"
+  dependencies:
+    sortablejs "^1.7.0"
 
 watchpack@^1.4.0:
   version "1.5.0"
