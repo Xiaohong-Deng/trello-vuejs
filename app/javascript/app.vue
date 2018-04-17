@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <div v-for="list in original_lists">
+      {{ list.name }}
+    </div>
   </div>
 </template>
 

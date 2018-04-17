@@ -62,4 +62,20 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 gem 'acts_as_list'
+# gem 'administrate', '~> 0.9.0'
+gem 'devise', '~> 4.4.0'
+gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
+gem 'devise_masquerade', '~> 0.6.0'
+gem 'font-awesome-sass', '~> 4.7'
+gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
+gem 'jquery-rails', '~> 4.3.1'
+gem 'bootstrap', '~> 4.1.0'
+gem 'sidekiq', '~> 5.0'
+gem 'foreman', '~> 0.84.0'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-twitter', '~> 1.4'
+gem 'omniauth-github', '~> 1.3'
+
+gem 'thor', '0.19.4'
