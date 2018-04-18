@@ -16,7 +16,7 @@ document.addEventListener("turbolinks:load", function() {
     const app = new Vue({
       el: element,
       data: {
-        lists: JSON.parse(element.dataset.lists)
+        lists: JSON.parse(element.dataset.lists) // this is inherited from rails views, what is the advantage to ERB?
       },
       template: "<App :original_lists='lists' />",
       components: { App }
