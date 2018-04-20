@@ -1,6 +1,9 @@
 <template>
-  <div id="app" class="row">
-    <div v-for="list in original_lists" class="col-3">
+  <!-- :options is draggable predefined props, it works on a sortable object, group is one of the property -->
+  <!-- @end is one of the hooks when drag event happens, here when dragged and dropped, listMoved is called with the drag event -->
+  <!-- value prop or v-model can not be used here, because drag and drop won't update data. use list instead -->
+  <draggable :list="lists" :options="{group: 'lists'}" class="row dragArea" @end="listMoved">
+    <div v-for="(list, index) in original_lists" class="col-3">
       <h6>{{ list.name }}</h6>
       <hr/>
       <div v-for="(card, index) in list.cards" class="card card-body mb-3">
@@ -14,15 +17,18 @@
         <button v-on:click="submitMessages(list.id)" class="btn btn-primary">Add</button>
       </div>
     </div>
-  </div>
+  </draggable>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
+
 // the step that vue takes to talk to Rails database is through ajax call
 // would have done the same in asset pipeline or erb
 // it's the eventlistener or callback that clears the text area and updates the vue data property
 // would have done it the same way in asset pipeline. So the advantage of Vue.js remains to be seen
 export default {
+  components: { draggable },
   props: ["original_lists"],
   data: function() {
     return {
@@ -32,6 +38,22 @@ export default {
   },
 
   methods: {
+    // update the database to reflect the change happened in the front end
+    listMoved: function(event) {
+      var data = new FormData
+      data.append("list[position]", event.newIndex + 1)
+
+      // draggable has constraints, can only switch the adjacent two lists
+      // we retrieve the id of the list being dragged because lists start
+      // at 1, event index start at 0. and insert the list at the new index
+      Rails.ajax({
+        url: `/lists/${this.lists[event.newIndex].id}/move`,
+        type: "PATCH",
+        data: data,
+        dataType: "json",
+      })
+    },
+
     submitMessages: function(list_id) {
       var data = new FormData
       data.append("card[list_id]", list_id)
@@ -57,8 +79,7 @@ export default {
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
+.dragArea {
+  min-height: 20px;
 }
 </style>
